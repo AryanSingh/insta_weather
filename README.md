@@ -1,3 +1,3 @@
-clone or download
-npm install
-npm start
+clone or download;
+npm install;
+npm start;
