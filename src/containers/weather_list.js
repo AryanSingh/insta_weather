@@ -7,7 +7,7 @@ import GoogleMap from '../components/google_map';
 class WeatherList extends Component {
 	renderWeather(cityData) {
 		const name = cityData.city.name;
-		const temps = cityData.list.map(weather => weather.main.temp);
+		const temps = cityData.list.map(weather => weather.main.temp - 273);
 		const pressures = cityData.list.map(weather => weather.main.pressure);
 		const humidities = cityData.list.map(weather => weather.main.humidity);
 		const { lon, lat } = cityData.city.coord;
@@ -16,7 +16,7 @@ class WeatherList extends Component {
 			<tr key={name}>
 				<td width="25%"><GoogleMap lon={lon} lat={lat} /></td>
 				<td width="25%">
-					<Chart data={temps} color="orange" units="K" />	
+					<Chart data={temps} color="orange" units="&deg;C" />	
 				</td>
 				<td width="25%">
 					<Chart data={pressures} color="red" units="hPa" />	
@@ -34,7 +34,7 @@ class WeatherList extends Component {
 				<thead>
 					<tr>
 						<th>City</th>
-						<th>Temperature (K)</th>
+						<th>Temperature (Celcius)</th>
 						<th>Presure (hPa)</th>
 						<th>Humidity (%)</th>
 					</tr> 
